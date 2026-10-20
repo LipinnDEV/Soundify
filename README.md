@@ -4,8 +4,6 @@ Plataforma de streaming de música com cadastro de usuários, catálogo, busca, 
 
 A identidade visual é própria (tema escuro em preto e cinza com destaque verde-jade, logotipo em barras de equalizador) e não usa marcas nem elementos do Spotify.
 
-> **Sobre o conteúdo:** artistas, álbuns e músicas são **fictícios**. Os 19 áudios de demonstração (de 16 a 21 segundos) foram **sintetizados por código** (`tools/generate_demo_media.py`), portanto não têm direitos autorais de terceiros. Nenhum dado de popularidade ou número de reproduções é inventado: a seleção de "destaques" é uma curadoria fixa de demonstração e a interface avisa isso.
-
 ## Funcionalidades
 
 - **Contas e segurança:** cadastro, login, perfil (nome e e-mail), logout com revogação do token. Senhas com hash BCrypt; autenticação por JWT; endpoints privados protegidos.
