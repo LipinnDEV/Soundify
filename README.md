@@ -67,57 +67,6 @@ soundify/
 └── .env.example
 ```
 
-## Como executar
-
-### Opção 1: Docker (recomendada)
-
-Requisitos: Docker com Docker Compose.
-
-```bash
-cp .env.example .env      # no Windows (PowerShell): copy .env.example .env
-# edite o .env e troque as senhas e o JWT_SECRET
-docker compose up --build
-```
-
-A primeira execução baixa as imagens e compila tudo (alguns minutos). Depois:
-
-| Serviço | Endereço |
-| --- | --- |
-| Aplicação | http://localhost:3000 |
-| Swagger UI | http://localhost:8080/swagger-ui.html |
-| Health check | http://localhost:8080/actuator/health |
-| MySQL | `localhost:3306` (útil para o MySQL Workbench) |
-
-Abra a aplicação, clique em **Cadastre-se** e crie uma conta. O catálogo de demonstração já vem carregado pelo Flyway na primeira subida. Para parar: `Ctrl+C` (ou `docker compose down`). Para apagar também o banco: `docker compose down -v`.
-
-### Opção 2: desenvolvimento local (sem containerizar a API e o frontend)
-
-Requisitos: JDK 17+, Maven 3.9+, Node 20+ e um MySQL 8 (pode ser o do Compose).
-
-```bash
-cp .env.example .env
-docker compose up -d mysql            # ou use um MySQL instalado na sua máquina
-
-# terminal 1: API em http://localhost:8080
-cd backend
-mvn spring-boot:run
-
-# terminal 2: interface em http://localhost:5173
-cd frontend
-npm install
-npm run dev
-```
-
-O backend lê automaticamente o `.env` da raiz do repositório (rodando de `backend/` ou da raiz), então não é preciso exportar variáveis. Na IDE (IntelliJ, VS Code, NetBeans), abra a pasta `backend` como projeto Maven e execute `SoundifyApplication`; confira se o diretório de trabalho é `backend` ou a raiz do repositório.
-
-### Testes
-
-```bash
-cd backend
-mvn test
-```
-
-Os testes cobrem as regras de negócio com Mockito: cadastro e login, geração e validação do JWT, regras de playlist (posse, duplicidade, ordem), histórico (mínimo de reprodução e deduplicação), favoritos e normalização das buscas. No frontend, `npm run typecheck` executa o TypeScript em modo estrito.
 
 ## Variáveis de ambiente
 
@@ -215,19 +164,6 @@ Restrições de integridade: chaves estrangeiras, e-mail único, par (playlist, 
 - Testes de integração com Testcontainers e pipeline de CI.
 - Upload de músicas, playlists públicas/compartilháveis, modo aleatório e repetição no player.
 - Migrar para o Spring Boot 4.x.
-
-## Publicar no GitHub
-
-```bash
-git init
-git add .
-git commit -m "feat: Soundify, plataforma de streaming de música"
-git branch -M main
-git remote add origin https://github.com/<seu-usuario>/soundify.git
-git push -u origin main
-```
-
-O envio de arquivos pelo navegador do GitHub aceita no máximo 100 arquivos por vez e este projeto tem mais que isso; prefira o Git ou o GitHub Desktop. Confira que o `.env` **não** foi adicionado (só o `.env.example`).
 
 ## Licença
 
