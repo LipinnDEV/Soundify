@@ -1,0 +1,20 @@
+# Java / Maven
+backend/target/
+*.class
+*.log
+
+# Node / Vite
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Segredos locais (use o .env.example como modelo)
+.env
+!.env.example
+
+# IDEs e sistema operacional
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
