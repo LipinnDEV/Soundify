@@ -1,6 +1,6 @@
 # Soundify
 
-Plataforma de streaming de música com cadastro de usuários, catálogo, busca, player de áudio, playlists, favoritos e histórico de reprodução. Projeto de portfólio com **backend em Java/Spring Boot**, **frontend em React + TypeScript** e **banco MySQL**, tudo executável com um único `docker compose up`.
+Plataforma de streaming de música com cadastro de usuários, catálogo, busca, player de áudio, playlists, favoritos e histórico de reprodução. Projeto de portfólio com **backend em Java/Spring Boot**, **frontend em React + TypeScript** e **banco MySQL**, tudo executável com um único docker compose up.
 
 A identidade visual é própria (tema escuro em preto e cinza com destaque verde-jade, logotipo em barras de equalizador) e não usa marcas nem elementos do Spotify.
 
